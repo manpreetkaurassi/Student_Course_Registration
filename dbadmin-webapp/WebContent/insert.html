@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("button").click(function(e) {
+			e.preventDefault();
+			$.ajax({
+				type : "GET",
+				url : "http://localhost:8096/insertdata",
+				data : {
+					studentid : $("#studentidinput").val(),
+					subjectid : $("#dropdownMenu").val()
+				},
+				success : function(result) {
+					alert(result);
+				},
+				error : function(result) {
+					alert("Registration failed, please retry!");
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<input id="jsonData" name="jsonData" type="hidden">
+	<div id="headerInfo" class="container">
+		<form method="get">
+			<div class="form-group">
+				<label for="studentidinput">Student ID</label> <input type="text"
+					class="form-control" id="studentidinput"
+					aria-describedby="emailHelp" placeholder="Enter student ID">
+			</div>
+
+			<div class="dropdown">
+				<label for="dropdownMenu">Course :</label> <select
+					class="form-control" id="dropdownMenu">
+					<option selected>Open this select menu</option>
+					<option value="10101">Introduction to Database Management</option>
+					<option value="10102">Introduction to Java Programming</option>
+					<option value="10103">Intermediate Analytics</option>
+					<option value="10104">Introduction to Enterprise Analytics</option>
+					<option value="10105">Communication and Visualization for
+						Data Analytics</option>
+					<option value="10106">Predictive Analytics</option>
+					<option value="10107">Data Warehousing and SQL</option>
+				</select>
+			</div>
+			<br />
+			<button type="button" class="btn btn-danger" id="studentid"
+				value="Enter your Student ID" name="but1">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

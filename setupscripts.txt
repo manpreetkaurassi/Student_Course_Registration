@@ -1,0 +1,42 @@
+CREATE TABLE student (student_id INT, name VARCHAR(45), PRIMARY KEY (student_id));
+
+
+CREATE TABLE registration (reg_id INT, student_id INT, subject_id INT, PRIMARY KEY (reg_id));
+
+
+CREATE TABLE subject (subject_id INT, subject_code VARCHAR(45), subject_name VARCHAR(45), PRIMARY KEY (subject_id));
+
+
+ALTER TABLE registration ADD FOREIGN KEY (student_id) REFERENCES student(student_id);
+ALTER TABLE registration ADD FOREIGN KEY (subject_id) REFERENCES subject(subject_id);
+
+INSERT INTO student (student_id, name) VALUES (2019000001, "Adam");
+INSERT INTO student (student_id, name) VALUES (2019000002, "Eve");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000101, "CS101", "Introduction to Database Management");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000102, "CS102", "Introduction to Java Programming");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000103, "CS103", "Intermediate Analytics");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000104, "CS104", "Introduction to Enterprise Analytics");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000105, "CS105", "Communication and Visualisation for Data Analytics");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000106, "CS106", "Predictive Analytics");
+INSERT INTO subject (subject_id, subject_code, subject_name) VALUES (1000107, "CS107", "DataWarehousing and SQL");
+
+
+INSERT INTO registration (reg_id, student_id, subject_id) VALUES (1, 2019000001, 1000101);
+INSERT INTO registration (reg_id, student_id, subject_id) VALUES (2, 2019000001, 1000102);
+INSERT INTO registration (reg_id, student_id, subject_id) VALUES (3, 2019000002, 1000101);
+
+
+
+Output:
+
+[{"subjectdetails":[{"subject_code":"CS101","subject_name":"Introduction to Database Management","subjectID":"1000101"},{"subject_code":"CS102","subject_name":"Introduction to Java Programming","subjectID":"1000102"}]},{"studentdetails":[{"studentID":"2019000001","studentName":"Adam"}]}]
+
+Courses registered:
+    <option value="0">REGISTER COURSES</option>
+    <option value="1">Introduction to Database Management</option>
+    <option value="2">Introduction to Java Programming</option>
+    <option value="3">Intermediate Analytics</option>
+    <option value="4">Introduction to Enterprise Analytics</option>
+    <option value="5">Communication and Visualisation for Data Analytics</option>
+    <option value="6">Predictive Analytics</option>
+    <option value="7">Datawarehousing and SQL</option>

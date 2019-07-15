@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Student Course Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script>
+	function load_home() {
+		location.href = "#";
+		var height = document.getElementById('contentDIV').offsetHeight - 40;
+		var width = document.getElementById('contentDIV').offsetWidth - 40;
+		document.getElementById("contentDIV").innerHTML = '<object id="dataObj" type="text/html" data="home.html"></object>';
+		document.getElementById("dataObj").style.height = height + "px";
+		document.getElementById("dataObj").style.width = width + "px";
+	}
+	function load_view() {
+		location.href = "#";
+		var height = document.getElementById('contentDIV').offsetHeight - 40;
+		var width = document.getElementById('contentDIV').offsetWidth - 40;
+		document.getElementById("contentDIV").innerHTML = '<object id="dataObj" type="text/html" data="view.html"></object>';
+		document.getElementById("dataObj").style.height = height + "px";
+		document.getElementById("dataObj").style.width = width + "px";
+	}
+	function load_insert() {
+		location.href = "#";
+		var height = document.getElementById('contentDIV').offsetHeight - 40;
+		var width = document.getElementById('contentDIV').offsetWidth - 40;
+		document.getElementById("contentDIV").innerHTML = '<object id="dataObj" type="text/html" data="insert.html"></object>';
+		document.getElementById("dataObj").style.height = height + "px";
+		document.getElementById("dataObj").style.width = width + "px";
+	}
+	function contentDIVheight() {
+		var containerHeight = screen.height * 0.55;
+		document.getElementById("contentDIV").style.height = containerHeight
+				+ "px";
+		load_home()
+	}
+	function dataObjHeight() {
+		var containerHeight = screen.height * 0.55;
+		document.getElementById("dataObjHeight").style.height = containerHeight
+				+ "px";
+	}
+</script>
+</head>
+<body onload="contentDIVheight()">
+	<div class="container">
+		<h2
+			style="font-family: times new roman regular; text-align: left !important; width: inherit">
+			<span>COURSE REGISTRATION</span>
+		</h2>
+		<br> <br>
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<ul class="list-inline">
+						<li><input type="button" class="btn btn-danger" value="HOME"
+							onclick="load_home()"></li>
+						<li><input type="button" class="btn btn-danger"
+							value="CREATE REGISTRATION" onclick="load_insert()"></li>
+						<li><input type="button" class="btn btn-danger"
+							value="VIEW REGISTRATION" onclick="load_view()"></li>
+					</ul>
+				</div>
+				<div id="contentDIV" class="panel-body">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

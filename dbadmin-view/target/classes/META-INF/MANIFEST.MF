@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: com.dbadmin.view
+Implementation-Version: 1.0.0
+Built-By: manu
+Implementation-Vendor-Id: com.dbadmin
+Build-Jdk: 1.8.0_201
+Implementation-URL: http://projects.spring.io/spring-boot/com.dbadmin.
+ parent/com.dbadmin.view/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

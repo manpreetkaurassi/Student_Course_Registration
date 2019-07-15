@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+<body>
+	<input id="jsonData" name="jsonData" type="hidden">
+	<div id="headerInfo" class="container">
+		<form method="get">
+			<div class="form-group">
+				<label for="studentid">Student ID</label>
+				<input type="text"
+					class="form-control" id="studentidinput"
+					aria-describedby="emailHelp" placeholder="Enter student ID">
+			</div>
+			<button type="button" class="btn btn-danger" id="studentid"
+				value="Enter your Student ID" name="studentidval">Submit</button>
+		</form>
+	</div>
+	<div id="tableDiv">
+		<table class="table" id="marksTable">
+			<thead>
+				<tr>
+					<th>Subject ID</th>
+					<th>Subject Code</th>
+					<th>Subject Name</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$("button")
+								.click(
+										function(e) {
+											e.preventDefault();
+											$
+													.ajax({
+														type : "GET",
+														url : "http://localhost:8095/getdata",
+														data : {
+															studentid : $("#studentidinput").val(), // < note use of 'this' here
+														},
+														success : function(
+																result1) {
+															
+															var table = document.getElementById("marksTable");
+															var result = JSON.parse(result1);
+															var size = Object.keys(result).length;
+															
+															var keys = Object
+																	.keys(result);
+															for (var i = 0; i < size; i++) {
+																var n = document
+																		.getElementById("marksTable").rows.length;
+																var currentKey = keys[i];
+																var currentRecord = result[currentKey];
+																var subjectID = currentRecord["subjectID"];
+																var subjectCode = currentRecord["subjectCode"];
+																var subjectName = currentRecord["subjectName"];
+																var row = table
+																		.insertRow(n);
+																var cell1 = row
+																		.insertCell(0);
+																var cell2 = row
+																		.insertCell(1);
+																var cell3 = row
+																		.insertCell(2);
+																cell1.innerHTML = subjectID;
+																cell2.innerHTML = subjectCode;
+																cell3.innerHTML = subjectName;
+															}
+														}
+													});
+										});
+					});
+</script>
+
+</html>
