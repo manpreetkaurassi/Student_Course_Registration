@@ -1,5 +1,5 @@
 # Student Course Registration Website
-The project primarily focuses on showing the integration of AWS Aurora DB, Apache Tomcat server and Java REST API using microservices
+The project primarily focuses on showing the integration of AWS Aurora DB, Apache Tomcat server and Java REST API using microservices..
 
 
 
